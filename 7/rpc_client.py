@@ -11,7 +11,7 @@ class MyRpcClient:
         self.channel.basic_consume(queue=self.queue_name,on_message_callback=self.on_respone,auto_ack=True)
 
     def on_respone(self, ch, method, props, body):
-        print(" Waitint " )
+        print(" Waiting .... " )
         if self.corr_id==props.correlation_id:
             self.response=body
             print(" [x] Received %r" % body)
